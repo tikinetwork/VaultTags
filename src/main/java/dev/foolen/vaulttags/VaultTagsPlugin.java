@@ -1,13 +1,12 @@
 package dev.foolen.vaulttags;
 
 import dev.foolen.vaulttags.listeners.PlayerJoin;
-import dev.foolen.vaulttags.modules.teams.TeamsModule;
+import dev.foolen.vaulttags.teams.Teams;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.permission.Permission;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scoreboard.ScoreboardManager;
 
 public final class VaultTagsPlugin extends JavaPlugin {
 
@@ -24,13 +23,13 @@ public final class VaultTagsPlugin extends JavaPlugin {
         setupChat();
         registerEvents();
 
-        // Load modules
-        new TeamsModule();
+        // Load teams
+        new Teams();
     }
 
     @Override
     public void onDisable() {
-        TeamsModule.removeTeams();
+        Teams.removeTeams();
     }
 
     public static VaultTagsPlugin getInstance() {

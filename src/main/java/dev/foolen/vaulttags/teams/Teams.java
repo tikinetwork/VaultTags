@@ -1,4 +1,4 @@
-package dev.foolen.vaulttags.modules.teams;
+package dev.foolen.vaulttags.teams;
 
 import dev.foolen.vaulttags.VaultTagsPlugin;
 import org.bukkit.Bukkit;
@@ -9,11 +9,11 @@ import org.bukkit.scoreboard.Team;
 
 import java.util.ArrayList;
 
-public class TeamsModule {
+public class Teams {
 
     private static ArrayList<Team> teams;
 
-    public TeamsModule() {
+    public Teams() {
         teams = new ArrayList<>();
 
         createTeams();
