@@ -41,6 +41,6 @@ public class Teams {
         ScoreboardManager manager = VaultTagsPlugin.getInstance().getServer().getScoreboardManager();
         Scoreboard board = manager.getMainScoreboard();
 
-        teams.forEach(team -> board.getTeams().remove(team));
+        teams.forEach(team -> team.unregister());
     }
 }
