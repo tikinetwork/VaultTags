@@ -5,7 +5,7 @@
 - Vault
 
 ## Images
-[screenshot]: https://github.com/tikinetwork/VaultTags/raw/master/screenshot.png "Screenshot"
+![screenshot]: https://github.com/tikinetwork/VaultTags/raw/master/screenshot.png "Screenshot"
 
 ## Authors
 - [Tjeu Foolen](https://github.com/tjeufoolen/)
