@@ -1,0 +1,5 @@
+name: VaultTags
+version: ${project.version}
+main: dev.foolen.vaulttags.VaultTagsPlugin
+api-version: 1.13
+depend: [Vault]
