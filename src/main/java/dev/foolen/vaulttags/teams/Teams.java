@@ -27,7 +27,10 @@ public class Teams {
             Team team = board.registerNewTeam(group);
 
             String prefix = VaultTagsPlugin.getChat().getGroupPrefix(Bukkit.getWorlds().get(0), group);
+            String suffix = VaultTagsPlugin.getChat().getGroupSuffix(Bukkit.getWorlds().get(0), group);
+
             team.setPrefix(ChatColor.translateAlternateColorCodes('&', prefix));
+            team.setSuffix(ChatColor.translateAlternateColorCodes('&', suffix));
 
             teams.add(team);
         }
@@ -42,5 +45,7 @@ public class Teams {
         Scoreboard board = manager.getMainScoreboard();
 
         teams.forEach(team -> team.unregister());
+
+        board.getTeams().clear();
     }
 }
