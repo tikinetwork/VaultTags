@@ -19,6 +19,8 @@ public final class VaultTagsPlugin extends JavaPlugin {
     public void onEnable() {
         instance = this;
 
+        saveDefaultConfig();
+
         setupPermissions();
         setupChat();
         registerEvents();

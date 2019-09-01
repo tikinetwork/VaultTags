@@ -3,6 +3,7 @@ package dev.foolen.vaulttags.teams;
 import dev.foolen.vaulttags.VaultTagsPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.configuration.Configuration;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.scoreboard.Team;
@@ -23,14 +24,20 @@ public class Teams {
         ScoreboardManager manager = VaultTagsPlugin.getInstance().getServer().getScoreboardManager();
         Scoreboard board = manager.getMainScoreboard();
 
+        Configuration config = VaultTagsPlugin.getInstance().getConfig();
+
         for (String group : VaultTagsPlugin.getPermissions().getGroups()) {
             Team team = board.registerNewTeam(group);
 
-            String prefix = VaultTagsPlugin.getChat().getGroupPrefix(Bukkit.getWorlds().get(0), group);
-            String suffix = VaultTagsPlugin.getChat().getGroupSuffix(Bukkit.getWorlds().get(0), group);
+            if (config.getBoolean("prefix")) {
+                String prefix = VaultTagsPlugin.getChat().getGroupPrefix(Bukkit.getWorlds().get(0), group);
+                team.setPrefix(ChatColor.translateAlternateColorCodes('&', prefix));
+            }
 
-            team.setPrefix(ChatColor.translateAlternateColorCodes('&', prefix));
-            team.setSuffix(ChatColor.translateAlternateColorCodes('&', suffix));
+            if (config.getBoolean("suffix")) {
+                String suffix = VaultTagsPlugin.getChat().getGroupSuffix(Bukkit.getWorlds().get(0), group);
+                team.setSuffix(ChatColor.translateAlternateColorCodes('&', suffix));
+            }
 
             teams.add(team);
         }
